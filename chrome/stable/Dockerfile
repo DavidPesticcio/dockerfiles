@@ -5,7 +5,7 @@
 #	--cpuset-cpus 0 \ # control the cpu
 #	--memory 512mb \ # max memory it can use
 #	-v /tmp/.X11-unix:/tmp/.X11-unix \ # mount the X11 socket
-#	-e DISPLAY=unix$DISPLAY \
+#	-e DISPLAY=unix${DISPLAY} \
 #	-v $HOME/Downloads:/home/chrome/Downloads \
 #	-v $HOME/.config/google-chrome/:/data \ # if you want to save state
 #	--security-opt seccomp=$HOME/chrome.json \
@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y \
 	apt-transport-https \
 	ca-certificates \
 	curl \
+  dbus-x11 \
 	gnupg \
 	hicolor-icon-theme \
 	libcanberra-gtk* \
